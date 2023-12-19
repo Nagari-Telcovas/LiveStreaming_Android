@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<resources>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_horizontal">16dp</dimen>
+
+    <!-- OTP Dimens -->
+    <dimen name="otp_view_item_size">35dp</dimen>
+    <dimen name="otp_view_item_spacing">10dp</dimen>
+    <dimen name="otp_view_item_line_width">1dp</dimen>
+    <dimen name="otp_view_cursor_width">1dp</dimen>
+
+    <!-- Layout Dimens -->
+    <dimen name="dimen0">0dp</dimen>
+    <dimen name="dimenHalf">0.5dp</dimen>
+    <dimen name="dimen1">1dp</dimen>
+    <dimen name="dimen2">2dp</dimen>
+    <dimen name="dimen3">3dp</dimen>
+    <dimen name="dimen4">4dp</dimen>
+    <dimen name="dimen5">5dp</dimen>
+    <dimen name="dimen6">6dp</dimen>
+    <dimen name="dimen7">7dp</dimen>
+    <dimen name="dimen8">8dp</dimen>
+    <dimen name="dimen9">9dp</dimen>
+    <dimen name="dimen10">10dp</dimen>
+    <dimen name="dimen11">11dp</dimen>
+    <dimen name="dimen12">12dp</dimen>
+    <dimen name="dimen13">13dp</dimen>
+    <dimen name="dimen14">14dp</dimen>
+    <dimen name="dimen15">15dp</dimen>
+    <dimen name="dimen16">16dp</dimen>
+    <dimen name="dimen18">18dp</dimen>
+    <dimen name="dimen20">20dp</dimen>
+    <dimen name="dimen22">22dp</dimen>
+    <dimen name="dimen24">24dp</dimen>
+    <dimen name="dimen25">25dp</dimen>
+    <dimen name="dimen26">26dp</dimen>
+    <dimen name="dimen28">28dp</dimen>
+    <dimen name="dimen30">30dp</dimen>
+    <dimen name="dimen32">32dp</dimen>
+    <dimen name="dimen35">35dp</dimen>
+    <dimen name="dimen40">40dp</dimen>
+    <dimen name="dimen42">42dp</dimen>
+    <dimen name="dimen45">45dp</dimen>
+    <dimen name="dimen48">48dp</dimen>
+    <dimen name="dimen50">50dp</dimen>
+    <dimen name="dimen55">55dp</dimen>
+    <dimen name="dimen60">60dp</dimen>
+    <dimen name="dimen70">70dp</dimen>
+    <dimen name="dimen80">80dp</dimen>
+    <dimen name="dimen90">90dp</dimen>
+    <dimen name="dimen95">95dp</dimen>
+    <dimen name="dimen102">102dp</dimen>
+    <dimen name="dimen110">110dp</dimen>
+    <dimen name="dimen120">120dp</dimen>
+    <dimen name="dimen128">128dp</dimen>
+    <dimen name="dimen140">140dp</dimen>
+    <dimen name="dimen150">150dp</dimen>
+    <dimen name="dimen160">160dp</dimen>
+    <dimen name="dimen180">180dp</dimen>
+    <dimen name="dimen200">200dp</dimen>
+    <dimen name="dimen205">205dp</dimen>
+    <dimen name="dimen210">210dp</dimen>
+    <dimen name="dimen220">220dp</dimen>
+    <dimen name="dimen240">230dp</dimen>
+    <dimen name="dimen250">250dp</dimen>
+    <dimen name="dimen260">260dp</dimen>
+    <dimen name="dimen290">290dp</dimen>
+    <dimen name="dimen310">310dp</dimen>
+    <dimen name="dimen450">450dp</dimen>
+    <!-- Text Views -->
+    <dimen name="textview8">8sp</dimen>
+    <dimen name="textview9">9sp</dimen>
+    <dimen name="textview10">10sp</dimen>
+    <dimen name="textview11">11sp</dimen>
+    <dimen name="textview12">12sp</dimen>
+    <dimen name="textview13">13sp</dimen>
+    <dimen name="textview14">14sp</dimen>
+    <dimen name="textview15">15sp</dimen>
+    <dimen name="textview16">16sp</dimen>
+    <dimen name="textview18">18sp</dimen>
+    <dimen name="textview20">20sp</dimen>
+    <dimen name="textview22">22sp</dimen>
+    <dimen name="textview23">23sp</dimen>
+    <dimen name="textview24">24sp</dimen>
+    <dimen name="textview25">25sp</dimen>
+    <dimen name="textview26">26sp</dimen>
+    <dimen name="textview32">32sp</dimen>
+    <dimen name="textview35">35sp</dimen>
+    <dimen name="textview40">40sp</dimen>
+    <dimen name="textview45">45sp</dimen>
+    <dimen name="dimens_52">62dp</dimen>
+    <dimen name="frames_video_height">40dip</dimen>
+
+    <dimen name="google_1x">8dp</dimen>
+    <dimen name="ccp_padding">8dp</dimen>
+    <dimen name="fastscroll__bubble_corner">20dp</dimen>
+    <dimen name="fastscroll__bubble_size">50dp</dimen>
+    <dimen name="fastscroll__handle_corner">3dp</dimen>
+    <dimen name="fastscroll__handle_height">30dp</dimen>
+    <dimen name="fastscroll__handle_width">6dp</dimen>
+    <dimen name="fastscroll__handle_inset">9dp</dimen>
+    <dimen name="fastscroll__handle_clickable_width">24dp</dimen>
+    <dimen name="fastscroll__handle_padding">2dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="medium_margin">8dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+
+    <!--  Calling Margin  -->
+    <dimen name="basic_margin">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="toggle_button_size">50dp</dimen>
+    <dimen name="text_size_incoming_callee">30sp</dimen>
+    <dimen name="text_size_incoming_label">16sp</dimen>
+
+    <!--  Payment  Margin  -->
+
+    <dimen name="material_baseline_grid_2x">16dp</dimen>
+    <dimen name="material_baseline_grid_4x">32dp</dimen>
+    <dimen name="material_typography_regular_title_text_size">20sp</dimen>
+    <dimen name="material_baseline_grid_1x">8dp</dimen>
+    <dimen name="material_baseline_grid_6x">48dp</dimen>
+
+</resources>

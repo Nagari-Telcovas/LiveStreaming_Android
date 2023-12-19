@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/yellow"
+    tools:context=".fragments.account.LoginFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layoutNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen20"
+        android:layout_marginTop="@dimen/dimen120"
+        android:layout_marginEnd="@dimen/dimen20"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimenHalf"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen10"
+                android:layout_toLeftOf="@+id/loginWithText"
+                android:background="@color/lightGrey" />
+
+            <TextView
+                android:id="@+id/loginWithText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/loginWith"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textview18" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimenHalf"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen10"
+                android:layout_marginRight="@dimen/dimen10"
+                android:layout_toRightOf="@+id/loginWithText"
+                android:background="@color/lightGrey" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext"
+            android:hint="@string/mobile"
+            android:inputType="number"
+            android:maxLength="14"
+            android:layout_marginTop="@dimen/dimen45"
+            android:padding="@dimen/dimen15"
+            android:textSize="@dimen/textview16"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext"
+            android:hint="@string/password"
+            android:padding="@dimen/dimen15"
+            android:textSize="@dimen/textview16"
+            android:layout_marginTop="@dimen/dimen35"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLength="50"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dimen15"
+            android:layout_marginBottom="@dimen/dimen25"
+            android:text="@string/forgotPassMark"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/textview16" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_otp"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen10"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen5"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/byProceeding"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/textview13" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/terms_conditons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen5"
+                android:text="@string/terms_conditions"
+                android:textColor="@color/orangeColor"
+                android:textSize="@dimen/textview13" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen25"
+            android:layout_marginBottom="@dimen/dimen20"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen5"
+                android:text="@string/notMember"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/textview18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen15"
+                android:text="@string/signUp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview18" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/skipLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen20"
+            android:background="@drawable/rounded_skip"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:paddingStart="@dimen/dimen35"
+            android:paddingTop="@dimen/dimen5"
+            android:paddingEnd="@dimen/dimen35"
+            android:paddingBottom="@dimen/dimen5"
+            android:text="@string/skipLogin"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textview15" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.core.widget.NestedScrollView>

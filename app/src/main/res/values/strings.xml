@@ -1,0 +1,118 @@
+<resources>
+    <string name="app_name">Live Streaming</string>
+
+    <!-- Fragment Screens -->
+    <string name="homeFragment">Home</string>
+    <string name="liveTvFragment">Live TV</string>
+    <string name="premiumFragment">Premium</string>
+    <string name="loginFragment">Account</string>
+
+    <!--  Login Screen-->
+    <string name="enterMsisdn">Enter Msisdn</string>
+    <string name="login">Login</string>
+    <string name="loginWith">Login With</string>
+    <string name="manualLogin">Manual Login</string>
+    <string name="facebookLogin">Facebook</string>
+    <string name="googleLogin">Google+</string>
+    <string name="byProceeding">By proceeding you agree to our</string>
+    <string name="terms_conditions">Terms &amp; Conditions</string>
+    <string name="name">Name</string>
+    <string name="updateName">Update Name</string>
+    <string name="updateProfile">Update Profile</string>
+    <string name="requiredMsisdn">Mobile Number can\'t be Empty!</string>
+    <string name="requiredUserName">User Name can\'t be Empty!</string>
+    <string name="requiredPassword">Password can\'t be Empty!</string>
+    <string name="requiredEmail">Email Id can\'t be Empty!</string>
+    <string name="requiredAddress">Address can\'t be Empty!</string>
+    <string name="requiredPinCode">PinCode can\'t be Empty!</string>
+    <string name="requiredMessage">Message can\'t be Empty!</string>
+    <string name="checkNetwork">Please check your Internet Connectivity!</string>
+
+    <!--  Skip Login  -->
+    <string name="skipLogin">SKIP LOGIN</string>
+
+    <!--  Register Screen  -->
+    <string name="fullName">Full Name</string>
+    <string name="mobile">Mobile Number</string>
+    <string name="registeredNumber">Registered Mobile</string>
+    <string name="email">Email Id</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="notMember">Not a Member?</string>
+    <string name="register">Register</string>
+    <string name="signUp">Sign Up</string>
+    <string name="alternateMobile">Alternate Mobile</string>
+    <string name="selectYourGender">Select your Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    <!--  Password  -->
+    <string name="forgotPassText">Forgot Password</string>
+    <string name="forgotPassMark">Forgot Password?</string>
+    <string name="newPasswordText">New Password</string>
+    <string name="update">Update</string>
+    <string name="sessionExpired">Session Expired!!</string>
+    <string name="logoutMessage">Session Expired! Please again the login!</string>
+
+
+    <string name="favouriteRecharge">Favourite Recharges</string>
+    <string name="buyCredit">BUY CREDIT</string>
+    <string name="buyNow">BUY NOW</string>
+    <string name="mobileLandline">Mobiles &amp; Landlines</string>
+    <string name="minutes">minutes</string>
+    <string name="mins">mins</string>
+    <string name="operatorSpecific">Operator Specific</string>
+    <string name="selectPayment">Select Payment Method</string>
+    <string name="creditCard">Credit Card</string>
+    <string name="debitCard">Debit Card</string>
+    <string name="netBanking">NetBanking</string>
+    <string name="mobileMoney">Mobile Money</string>
+    <string name="upi">UPI</string>
+    <string name="total">Total</string>
+    <string name="continueButton">Continue</string>
+    <string name="addMoney">Add Money</string>
+    <string name="automaticText">Automatic</string>
+    <string name="addMoneyWallet">Add Money to Wallet</string>
+    <string name="setupAutoAddMoney">Setup Automatic Add Money</string>
+    <string name="setupAutoAddMoneyContent">Automatically add money to your wallet when your Balance goes below</string>
+    <string name="automaticallyAdd">Automatically Add</string>
+    <string name="continueText">GET OTP</string>
+    <string name="agreeConditions">By ticking, you are confirming that you have read, understood and</string>
+    <string name="agreeConditions2">and agree our <u><b> Terms &amp; Conditions.</b></u></string>
+    <string name="offers">Offers</string>
+    <string name="pay">Pay</string>
+    <string name="payNow">Pay Now</string>
+    <string name="postpaid">| POSTPAID</string>
+    <string name="setLimit">Set Limit</string>
+    <string name="validity">Validity</string>
+    <string name="rates">Rates</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="cancel">Cancel</string>
+
+    <!--  Subscription Premium  -->
+    <string name="premiumSubscription">Premium Subscription</string>
+    <string name="premiumPlans">Premium Plans</string>
+    <string name="watchUnlimited">Watch Unlimited and Premium Contents</string>
+    <string name="watchUnlimited2">by getting yourself a</string>
+    <string name="subscribeNow">Subscribe Now</string>
+    <string name="condition1">* 3 Screens at a time</string>
+    <string name="condition2">* Suitable for all devices</string>
+    <string name="condition3">* Unlimited watch time</string>
+    <string name="condition4">* All premium contents</string>
+    <string name="condition5">anywhere anytime</string>
+    <string name="joinNow">Join Now</string>
+    <string name="watchNow">Watch Now</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  OnBoard Screen  -->
+    <string name="onboarding_slide1_title">Watch From your Comfort</string>
+    <string name="onboarding_slide1_subtitle">Stream on Your phone, tablet,</string>
+    <string name="onboarding_slide1_desc">laptop and TV</string>
+    <string name="onboarding_slide2_title">Flexible Subscription Plans</string>
+    <string name="onboarding_slide2_subtitle">Get a subscription of your choice</string>
+    <string name="onboarding_slide2_desc">from among most attractive plans</string>
+    <string name="onboarding_slide3_title">Easy Exit</string>
+    <string name="onboarding_slide3_subtitle">We have made easy exit</string>
+    <string name="onboarding_slide3_desc">from service</string>
+</resources>

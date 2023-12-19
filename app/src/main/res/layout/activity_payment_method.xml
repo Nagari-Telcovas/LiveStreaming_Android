@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".paymentMethod.PaymentMethodActivity">
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar_title" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimen60"
+        android:scrollbars="none"
+        app:layout_constrainedHeight="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dimen20">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/moneyLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen15"
+                app:cardBackgroundColor="@color/settingCard"
+                app:cardCornerRadius="@dimen/dimen10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/walletLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen10"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/walletDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen15"
+                        android:layout_marginTop="@dimen/dimen18"
+                        android:text="@string/addMoneyWallet"
+                        android:textColor="@color/yellow"
+                        android:textSize="@dimen/textview16"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/enterLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen15"
+                        android:layout_marginTop="@dimen/dimen20"
+                        android:layout_marginRight="@dimen/dimen15"
+                        android:background="@drawable/shape_edittext"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/dimen5"
+                        android:paddingBottom="@dimen/dimen5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/walletDataText">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/currentText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/dimen15"
+                            android:text="$"
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview18" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/amountAdded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/dimen10"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:hint=""
+                            android:inputType="numberDecimal"
+                            android:maxLength="10"
+                            android:text=""
+                            android:textColor="@color/yellow"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/textview18" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/favrechargeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen15"
+                        android:layout_marginTop="@dimen/dimen50"
+                        android:text="@string/favouriteRecharge"
+                        android:textColor="@color/yellow"
+                        android:textSize="@dimen/textview16"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/enterLayout"
+                        app:layout_constraintTop_toTopOf="@+id/enterLayout" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/selectAmountList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen10"
+                        android:layout_marginTop="@dimen/dimen50"
+                        android:layout_marginEnd="@dimen/dimen10"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintTop_toBottomOf="@+id/enterLayout"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_amount_text" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/addMoneyLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen15"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="@dimen/dimen10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moneyLayout">
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/paymentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen15"
+                app:cardBackgroundColor="@color/settingCard"
+                app:cardCornerRadius="@dimen/dimen10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addMoneyLayout">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen5"
+                    android:layout_marginEnd="@dimen/dimen5"
+                    android:paddingTop="@dimen/dimen25"
+                    android:paddingBottom="@dimen/dimen25"
+                    app:layout_constrainedHeight="true">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/selectPaymentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen15"
+                        android:text="@string/selectPayment"
+                        android:textColor="@color/yellow"
+                        android:textSize="@dimen/textview14"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/gatewayGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen15"
+                        android:layout_marginTop="@dimen/dimen10"
+                        android:layout_marginRight="@dimen/dimen15"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/selectPaymentText">
+
+                        <RadioButton
+                            android:id="@+id/creditCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen40"
+                            android:text="@string/creditCard"
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview14" />
+
+                        <RadioButton
+                            android:id="@+id/debitCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen40"
+                            android:text="@string/debitCard"
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview14" />
+
+                        <RadioButton
+                            android:id="@+id/netBanking"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen40"
+                            android:text="@string/netBanking"
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview14" />
+
+                        <RadioButton
+                            android:id="@+id/mobileMoney"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen40"
+                            android:text="@string/mobileMoney"
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview14" />
+                    </RadioGroup>
+
+                    <RelativeLayout
+                        android:id="@+id/totalPriceLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen15"
+                        android:layout_marginTop="@dimen/dimen20"
+                        android:layout_marginRight="@dimen/dimen15"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gatewayGroup">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/totalPayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/total"
+                            android:textColor="@color/walletColor"
+                            android:textSize="@dimen/textview16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/finalAmount"
+                            android:text="$"
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview18" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/finalAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen5"
+                            android:text=""
+                            android:textColor="@color/yellow"
+                            android:textSize="@dimen/textview18" />
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <CheckBox
+                android:id="@+id/checkConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen5"
+                android:layout_marginTop="@dimen/dimen10"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentLayout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/agreeConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen2"
+                android:layout_marginTop="@dimen/dimen20"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:text="@string/agreeConditions"
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/textview11"
+                android:visibility="gone"
+                app:layout_constraintLeft_toRightOf="@+id/checkConditions"
+                app:layout_constraintTop_toBottomOf="@+id/paymentLayout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/agreeConditions2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen2"
+                android:layout_marginTop="@dimen/dimen2"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:text="@string/agreeConditions2"
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/textview11"
+                android:visibility="gone"
+                app:layout_constraintLeft_toRightOf="@+id/checkConditions"
+                app:layout_constraintTop_toBottomOf="@+id/agreeConditions" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/payNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen20"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:background="@drawable/gradient_otp"
+                android:paddingStart="@dimen/dimen45"
+                android:paddingTop="@dimen/dimen12"
+                android:paddingEnd="@dimen/dimen45"
+                android:paddingBottom="@dimen/dimen12"
+                android:text="@string/payNow"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview18"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/agreeConditions2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

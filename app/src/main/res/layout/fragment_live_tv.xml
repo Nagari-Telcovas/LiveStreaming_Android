@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    tools:context=".fragments.livetv.LiveTvFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/trendingNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen6"
+                android:paddingTop="@dimen/dimen15"
+                android:paddingBottom="@dimen/dimen10"
+                android:text="Trending Now"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textview18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ePlayerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trendingNow">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageTrending"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/poster_bg"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/live_match"
+                    app:layout_constraintDimensionRatio="H,1:1.4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/joinNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen10"
+                        android:text="12 JULY - 16 AUG"
+                        android:textColor="@color/white"
+                        android:paddingTop="@dimen/dimen6"
+                        android:paddingBottom="@dimen/dimen6"
+                        android:paddingStart="@dimen/dimen20"
+                        android:paddingEnd="@dimen/dimen20"
+                        android:textSize="@dimen/textview12"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/watchNow"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/watchNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen20"
+                    android:background="@drawable/rounded_corner"
+                    android:text="@string/watchNow"
+                    android:textColor="@color/white"
+                    android:paddingTop="@dimen/dimen6"
+                    android:paddingBottom="@dimen/dimen6"
+                    android:paddingStart="@dimen/dimen20"
+                    android:paddingEnd="@dimen/dimen20"
+                    android:textSize="@dimen/textview12"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/youMayLikeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen8"
+                android:paddingTop="@dimen/dimen10"
+                android:paddingBottom="@dimen/dimen10"
+                android:text="Live Channels"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ePlayerLayout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/liveVideoList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen250"
+                android:padding="4dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constrainedHeight="true"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/youMayLikeText"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_live_videos" />
+
+            <TextView
+                android:id="@+id/newsListText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen8"
+                android:paddingTop="@dimen/dimen10"
+                android:paddingBottom="@dimen/dimen10"
+                android:text="News"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/liveVideoList" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/newsList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen250"
+                android:padding="4dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constrainedHeight="true"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newsListText"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_live_videos" />
+
+            <TextView
+                android:id="@+id/moviesListText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen8"
+                android:paddingTop="@dimen/dimen10"
+                android:paddingBottom="@dimen/dimen10"
+                android:text="Movies"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newsList" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/moviesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moviesListText"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_live_videos" />
+
+
+            <TextView
+                android:id="@+id/blogsListText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen8"
+                android:paddingTop="@dimen/dimen10"
+                android:paddingBottom="@dimen/dimen10"
+                android:text="Blogs"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moviesList" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/blogsList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen250"
+                android:padding="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/blogsListText"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_live_videos" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

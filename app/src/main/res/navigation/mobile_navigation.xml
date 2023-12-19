@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.livestreaming.fragments.home.HomeFragment"
+        android:label="@string/homeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_liveTv"
+        android:name="com.example.livestreaming.fragments.livetv.LiveTvFragment"
+        android:label="@string/liveTvFragment"
+        tools:layout="@layout/fragment_live_tv" />
+
+    <fragment
+        android:id="@+id/nav_premium"
+        android:name="com.example.livestreaming.fragments.premium.PremiumFragment"
+        android:label="@string/premiumFragment"
+        tools:layout="@layout/fragment_premium" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.livestreaming.fragments.account.LoginFragment"
+        android:label="@string/loginFragment"
+        tools:layout="@layout/fragment_login" />
+</navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/baseline_home"
+        android:title="@string/homeFragment" />
+    <item
+        android:id="@+id/nav_liveTv"
+        android:icon="@drawable/baseline_live_tv_24"
+        android:title="@string/liveTvFragment"/>
+
+  <!-- <item
+        android:id="@+id/navigation_camera"
+        android:title="" />-->
+
+    <item
+        android:id="@+id/nav_premium"
+        android:icon="@drawable/ic_star"
+        android:title="@string/premiumFragment" />
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/baseline_account_box"
+        android:title="@string/loginFragment" />
+</menu>
