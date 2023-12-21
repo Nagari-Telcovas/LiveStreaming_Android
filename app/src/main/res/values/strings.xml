@@ -115,4 +115,7 @@
     <string name="onboarding_slide3_title">Easy Exit</string>
     <string name="onboarding_slide3_subtitle">We have made easy exit</string>
     <string name="onboarding_slide3_desc">from service</string>
+
+    <string name="private_app_id">f4e07b724adb413a977cbfa720d17217</string>
+
 </resources>
