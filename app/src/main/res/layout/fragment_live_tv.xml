@@ -7,12 +7,6 @@
     android:background="@color/yellow"
     tools:context=".fragments.livetv.LiveTvFragment">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -96,121 +90,89 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/youMayLikeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen8"
-                android:paddingTop="@dimen/dimen10"
-                android:paddingBottom="@dimen/dimen10"
-                android:text="Live Channels"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textview18"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ePlayerLayout" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/liveVideoList"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen250"
-                android:padding="4dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constrainedHeight="true"
-                android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/youMayLikeText"
-                tools:itemCount="10"
-                tools:listitem="@layout/item_live_videos" />
-
-            <TextView
-                android:id="@+id/newsListText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen8"
-                android:paddingTop="@dimen/dimen10"
-                android:paddingBottom="@dimen/dimen10"
-                android:text="News"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textview18"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/liveVideoList" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/newsList"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen250"
-                android:padding="4dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constrainedHeight="true"
-                android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newsListText"
-                tools:itemCount="10"
-                tools:listitem="@layout/item_live_videos" />
-
-            <TextView
-                android:id="@+id/moviesListText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen8"
-                android:paddingTop="@dimen/dimen10"
-                android:paddingBottom="@dimen/dimen10"
-                android:text="Movies"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textview18"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newsList" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/moviesList"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constrainedHeight="true"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/moviesListText"
-                tools:itemCount="10"
-                tools:listitem="@layout/item_live_videos" />
+                app:layout_constraintTop_toBottomOf="@+id/ePlayerLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:context=".AgoraMainActivity">
 
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/white"
+                    android:text="Create a live broadcast or join an existing one"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/blogsListText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen8"
-                android:paddingTop="@dimen/dimen10"
-                android:paddingBottom="@dimen/dimen10"
-                android:text="Blogs"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textview18"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/moviesList" />
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/blogsList"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen250"
-                android:padding="4dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constrainedHeight="true"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/blogsListText"
-                tools:itemCount="10"
-                tools:listitem="@layout/item_live_videos" />
+                    <RadioButton
+                        android:id="@+id/host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Host" />
+
+                    <RadioButton
+                        android:id="@+id/audience"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="Audience" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Enter Channel Name"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+                <EditText
+                    android:id="@+id/channelName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview2" />
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Submit"
+                    android:layout_marginTop="@dimen/dimen20"
+                    app:layout_constraintTop_toBottomOf="@+id/channelName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

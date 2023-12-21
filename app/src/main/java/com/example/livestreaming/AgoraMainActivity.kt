@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -50,6 +51,8 @@ class AgoraMainActivity : AppCompatActivity() {
                     val intent = Intent(this, AgoraVideoActivity::class.java)
                     intent.putExtra(channelMessage, channelName)
                     intent.putExtra(profileMessage, channelProfile)
+                    Log.d("DataCheck11", channelName)
+                    Log.d("DataCheck22", channelProfile.toString())
                     startActivity(intent)
                    // val radio:RadioButton = findViewById(id)
                   //  Toast.makeText(applicationContext,"On button click :" + " ${radio.text}", Toast.LENGTH_SHORT).show()

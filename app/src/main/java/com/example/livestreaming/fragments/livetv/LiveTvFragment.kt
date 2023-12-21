@@ -1,35 +1,38 @@
 package com.example.livestreaming.fragments.livetv
 
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import com.example.livestreaming.AgoraMainActivity
+import com.example.livestreaming.AgoraVideoActivity
 import com.example.livestreaming.BaseFragment
+import com.example.livestreaming.CommonMethods
 import com.example.livestreaming.R
-import com.example.livestreaming.UserDto
 import com.example.livestreaming.fullVideo.FullVideoActivity
+import java.util.ArrayList
 
 
 class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
 
-    private lateinit var videoList: RecyclerView
-    private lateinit var newsList: RecyclerView
-    private lateinit var moviesList: RecyclerView
-    private lateinit var blogsList: RecyclerView
-    lateinit var liveTvAdapter: LiveTvAdapter
-    lateinit var newsAdapter: LiveTvAdapter
-    lateinit var movieAdapter: LiveTvAdapter
-    lateinit var blogsAdapter: LiveTvAdapter
+    var channelProfile = 0
+    var cameraGranted = false
+    var permissionsStr = arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+    var permissionsCount = 0
+    lateinit var permissionsList: ArrayList<String>
 
     override fun initFragment(view: View) {
-        videoList = view.findViewById(R.id.liveVideoList)
-        newsList = view.findViewById(R.id.newsList)
-        moviesList = view.findViewById(R.id.moviesList)
-        blogsList = view.findViewById(R.id.blogsList)
 
         val videoViewTrending = view.findViewById<ImageView>(R.id.imageTrending)
         videoViewTrending.setOnClickListener {
@@ -37,54 +40,98 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
             intentImg.putExtra("VideoLink", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
             startActivity(intentImg)
         }
-        //--  Live Video  --//
-        videoList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        videoList.setHasFixedSize(true)
-        var adapter = LiveTvAdapter(generateData(), requireContext())
-        videoList?.itemAnimator =  DefaultItemAnimator()
-        videoList?.adapter = adapter
-        adapter.notifyDataSetChanged()
 
-        //--  News Video  --//
-        newsList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        newsList.setHasFixedSize(true)
-        newsAdapter = LiveTvAdapter(generateData(), requireContext())
-        newsList?.itemAnimator =  DefaultItemAnimator()
-        newsList?.adapter = newsAdapter
-        adapter.notifyDataSetChanged()
 
-        //--  Movies Video  --//
-        moviesList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        moviesList.setHasFixedSize(true)
-        movieAdapter = LiveTvAdapter(generateData(), requireContext())
-        moviesList?.itemAnimator =  DefaultItemAnimator()
-        moviesList?.adapter = movieAdapter
-        adapter.notifyDataSetChanged()
+        permissionsList = ArrayList()
+        permissionsList.addAll(permissionsStr)
+        askForPermissions(permissionsList)
 
-        //--  Blogs Video  --//
-        blogsList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        blogsList.setHasFixedSize(true)
-        blogsAdapter = LiveTvAdapter(generateData(), requireContext())
-        blogsList?.itemAnimator =  DefaultItemAnimator()
-        blogsList?.adapter = blogsAdapter
-        adapter.notifyDataSetChanged()
-    }
+        val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
+        val host = view.findViewById<RadioButton>(R.id.host)
+        val audience = view.findViewById<RadioButton>(R.id.audience)
+        val channelName = view.findViewById<EditText>(R.id.channelName)
+        val submit = view.findViewById<Button>(R.id.submit)
 
-    private fun generateData(): ArrayList<UserImage> {
-        var result = ArrayList<UserImage>()
-
-        for (i in 0..1) {
-            result.add(UserImage("LiveVideo1", R.drawable.live_match, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"))
-            result.add(UserImage("LiveVideo2", R.drawable.channel_2, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"))
-            result.add(UserImage("LiveVideo3", R.drawable.channel_3, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"))
-            result.add(UserImage("LiveVideo4", R.drawable.channel_4, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"))
-            result.add(UserImage("LiveVideo5", R.drawable.live_match, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"))
-            result.add(UserImage("LiveVideo6", R.drawable.channel_2, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"))
-            result.add(UserImage("LiveVideo7", R.drawable.channel_3, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"))
-            result.add(UserImage("LiveVideo8", R.drawable.channel_4, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"))
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            val radio: RadioButton = view.findViewById(checkedId)
+            Toast.makeText(requireContext(), " On checked change :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
         }
 
-        return result
+        submit.setOnClickListener{
+            // if (cameraGranted){
+            var id: Int = radioGroup.checkedRadioButtonId
+            if (id!=-1){
+                val channelName = channelName.text.toString()
+                val intent = Intent(requireContext(), AgoraVideoActivity::class.java)
+                intent.putExtra(AgoraMainActivity.channelMessage, channelName)
+                intent.putExtra(AgoraMainActivity.profileMessage, channelProfile)
+                Log.d("DataCheck11", channelName)
+                Log.d("DataCheck22", channelProfile.toString())
+                startActivity(intent)
+                // val radio:RadioButton = findViewById(id)
+                //  Toast.makeText(applicationContext,"On button click :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
+            }else{
+                // If no radio button checked in this radio group
+                Toast.makeText(requireContext(),"Please Select one Item", Toast.LENGTH_SHORT).show()
+                //   }
+                //}else{
+                //CommonMethods.showMessage(this, getString(R.string.permission_required))
+            }
+
+        }
+        val MY_PERMISSIONS_REQUEST_CAMERA = 0
+        // Here, this is the current activity
+        /*   if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}, MY_PERMISSIONS_REQUEST_CAMERA);
+
+        }*/
+
+
+    }
+
+    companion object {
+        const val channelMessage = "com.agora.samtan.agorabroadcast.CHANNEL"
+        const val profileMessage = "com.agora.samtan.agorabroadcast.PROFILE"
+    }
+
+    //-- Permission
+    private var permissionsLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
+        val list = ArrayList(result.values)
+        permissionsList = ArrayList()
+        permissionsCount = 0
+        for (i in list.indices) {
+            if (shouldShowRequestPermissionRationale(permissionsStr[i])) {
+                permissionsList.add(permissionsStr[i])
+            } else if (!hasPermission(requireContext(), permissionsStr[i])) {
+                if (permissionsStr[i] === Manifest.permission.CAMERA) {
+                    CommonMethods.showMessage(requireContext(), "Please allow Camera permission!")
+                }
+                if (permissionsStr[i] === Manifest.permission.RECORD_AUDIO) {
+                    //   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                    CommonMethods.showMessage(requireContext(), "Please allow MicroPhone permission!")
+                    //   }
+                }
+                permissionsCount++
+            }
+        }
+        if (permissionsList.size > 0) {
+            askForPermissions(permissionsList)
+        }
+    }
+
+    private fun hasPermission(context: Context, permissionStr: String): Boolean {
+
+        return ContextCompat.checkSelfPermission(context, permissionStr) == PackageManager.PERMISSION_GRANTED
+    }
+    private fun askForPermissions(permissionsList: ArrayList<String>) {
+        //val newPermissionStr = arrayOfNulls<String>(permissionsList.size)
+        val newPermissionStr = Array(permissionsList.size) { "" }
+        for (i in newPermissionStr.indices) {
+            newPermissionStr[i] = permissionsList[i]
+        }
+        if (newPermissionStr.isNotEmpty()) {
+            permissionsLauncher.launch(newPermissionStr)
+        }
     }
 
 }
