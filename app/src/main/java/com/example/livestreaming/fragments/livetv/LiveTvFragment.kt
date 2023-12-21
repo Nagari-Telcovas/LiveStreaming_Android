@@ -21,6 +21,7 @@ import com.example.livestreaming.BaseFragment
 import com.example.livestreaming.CommonMethods
 import com.example.livestreaming.R
 import com.example.livestreaming.fullVideo.FullVideoActivity
+import io.agora.rtc2.Constants
 import java.util.ArrayList
 
 
@@ -53,8 +54,22 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
         val submit = view.findViewById<Button>(R.id.submit)
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            val radio: RadioButton = view.findViewById(checkedId)
-            Toast.makeText(requireContext(), " On checked change :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
+            val radioChecked: RadioButton = view.findViewById(checkedId)
+          //  Toast.makeText(requireContext(), " On checked change :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
+
+          //  val checked = (view as RadioButton).isChecked
+            //when (view.getId()) {
+               /* R.id.host -> */
+                if(radioChecked.text == "Host") {
+                    channelProfile = Constants.CLIENT_ROLE_BROADCASTER
+                }else{
+                    channelProfile = Constants.CLIENT_ROLE_AUDIENCE
+                }
+
+               /* R.id.audience -> if (radioChecked) {
+                    channelProfile = Constants.CLIENT_ROLE_AUDIENCE
+                }*/
+            //}
         }
 
         submit.setOnClickListener{

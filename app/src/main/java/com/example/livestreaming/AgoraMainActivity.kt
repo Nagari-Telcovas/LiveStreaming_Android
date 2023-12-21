@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import io.agora.rtc2.Constants
 import java.util.ArrayList
 
 class AgoraMainActivity : AppCompatActivity() {
@@ -41,6 +42,11 @@ class AgoraMainActivity : AppCompatActivity() {
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             val radio: RadioButton = findViewById(checkedId)
             Toast.makeText(applicationContext, " On checked change :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
+            if(radio.text == ""){
+                channelProfile = Constants.CLIENT_ROLE_BROADCASTER
+            }else{
+
+            }
         }
 
         submit.setOnClickListener{
