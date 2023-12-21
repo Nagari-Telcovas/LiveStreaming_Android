@@ -102,7 +102,6 @@
     <string name="condition5">anywhere anytime</string>
     <string name="joinNow">Join Now</string>
     <string name="watchNow">Watch Now</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--  OnBoard Screen  -->
@@ -117,5 +116,8 @@
     <string name="onboarding_slide3_desc">from service</string>
 
     <string name="private_app_id">f4e07b724adb413a977cbfa720d17217</string>
+
+    <!--  Video Streaming  -->
+    <string name="permission_required">Contact access is required!</string>
 
 </resources>
