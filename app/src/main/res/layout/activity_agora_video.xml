@@ -26,14 +26,15 @@
         android:layout_alignParentTop="true"
         android:background="@android:color/darker_gray"
         android:layout_above="@+id/bottomTags"
-        android:layout_marginBottom="@dimen/dimen10"/>
+      />
 
     <LinearLayout
         android:id="@+id/bottomTags"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/dimen16"
+        android:paddingTop="@dimen/dimen16"
         android:orientation="vertical">
 
         <LinearLayout
@@ -42,6 +43,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/forwardVideo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
@@ -50,6 +52,7 @@
                 android:src="@drawable/btn_voice" />
 
             <ImageView
+                android:id="@+id/videoMute"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
@@ -58,6 +61,7 @@
                 android:src="@drawable/btn_mute" />
 
             <ImageView
+                android:id="@+id/videoCamera"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
@@ -66,6 +70,7 @@
                 android:src="@drawable/btn_switch_camera" />
 
             <ImageView
+                android:id="@+id/callConnection"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"

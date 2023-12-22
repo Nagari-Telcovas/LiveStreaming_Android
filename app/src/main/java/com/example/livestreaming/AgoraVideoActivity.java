@@ -24,6 +24,7 @@ public class AgoraVideoActivity extends AppCompatActivity {
     private String channelName;
     private int channelProfile;
     public static final String LOGIN_MESSAGE = "com.agora.samtan.agorabroadcast.CHANNEL_LOGIN";
+    ImageView forwardVideo, videoCamera, videoMute, callConnection;
     private IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
 
         @Override
@@ -85,12 +86,23 @@ public class AgoraVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agora_video);
 
+        forwardVideo = findViewById(R.id.forwardVideo);
+        videoCamera = findViewById(R.id.videoCamera);
+        videoMute = findViewById(R.id.videoMute);
+        callConnection = findViewById(R.id.callConnection);
         Intent intent = getIntent();
         channelName = intent.getStringExtra(AgoraMainActivity.channelMessage);
         channelProfile = intent.getIntExtra(AgoraMainActivity.profileMessage, -1);
 
+        Log.d("ChannelName11", channelName);
+        Log.d("ChannelName22", String.valueOf(channelProfile));
         if (channelProfile == -1) {
             Log.e("TAG: ", "No profile");
+        }
+
+        if (channelProfile == 2){
+            forwardVideo.setVisibility(View.GONE);
+            videoCamera.setVisibility(View.GONE);
         }
 
         initAgoraEngineAndJoinChannel();
@@ -150,7 +162,7 @@ public class AgoraVideoActivity extends AppCompatActivity {
     private void setupVideoProfile() {
         mRtcEngine.enableVideo();
 
-        mRtcEngine.setVideoEncoderConfiguration(new VideoEncoderConfiguration(VideoEncoderConfiguration.VD_640x480, VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
+        mRtcEngine.setVideoEncoderConfiguration(new VideoEncoderConfiguration(VideoEncoderConfiguration.VD_1280x720, VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
                 VideoEncoderConfiguration.STANDARD_BITRATE,
                 VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT));
     }
