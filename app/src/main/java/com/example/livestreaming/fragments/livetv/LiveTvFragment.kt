@@ -54,20 +54,27 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
         val submit = view.findViewById<Button>(R.id.submit)
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            val radioChecked: RadioButton = view.findViewById(checkedId)
+           // val radioChecked: RadioButton = view.findViewById(checkedId)
+            val selectdId = radioGroup.checkedRadioButtonId
+            val radioChecked: RadioButton = view.findViewById(selectdId)
+            Log.d("RadioGroup", radioChecked.text.toString())
           //  Toast.makeText(requireContext(), " On checked change :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
 
           //  val checked = (view as RadioButton).isChecked
-            //when (view.getId()) {
-               /* R.id.host -> */
+         //   when (view.id) {
+            //    Log.d("RadioGroup", view.id.toString())
+                /*R.id.host -> if (radioChecked.isChecked){
+
+                //  Toast.makeText(requireContext(), " On checked change11 :" + " ${radioChecked.text}", Toast.LENGTH_SHORT).show()
+                }*/
                 if(radioChecked.text == "Host") {
                     channelProfile = Constants.CLIENT_ROLE_BROADCASTER
                 }else{
                     channelProfile = Constants.CLIENT_ROLE_AUDIENCE
                 }
-
-               /* R.id.audience -> if (radioChecked) {
-                    channelProfile = Constants.CLIENT_ROLE_AUDIENCE
+              /* R.id.audience -> if (radioChecked.isChecked){
+                   Toast.makeText(requireContext(), " On checked change22 :" + " ${radioChecked.text}", Toast.LENGTH_SHORT).show()
+                   // channelProfile = Constants.CLIENT_ROLE_AUDIENCE
                 }*/
             //}
         }
