@@ -22,6 +22,7 @@
     <color name="dark_gray">#262626</color>
     <color name="ripple">#E5E5E5</color>
     <color name="red">#E50914</color>
+    <color name="pinkColor">#FF008A</color>
     <color name="black_transparent">#BF000000</color>
     <color name="bottom_sheet_bg">#2B2B2B</color>
     <color name="settingCard">#F6F7FC</color>

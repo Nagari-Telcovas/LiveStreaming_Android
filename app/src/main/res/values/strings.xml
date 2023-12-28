@@ -102,6 +102,7 @@
     <string name="condition5">anywhere anytime</string>
     <string name="joinNow">Join Now</string>
     <string name="watchNow">Watch Now</string>
+    <string name="submit">SUBMIT</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--  OnBoard Screen  -->

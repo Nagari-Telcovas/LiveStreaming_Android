@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -51,7 +52,7 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
         val host = view.findViewById<RadioButton>(R.id.host)
         val audience = view.findViewById<RadioButton>(R.id.audience)
         val channelName = view.findViewById<EditText>(R.id.channelName)
-        val submit = view.findViewById<Button>(R.id.submit)
+        val submit = view.findViewById<TextView>(R.id.submit)
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
            // val radioChecked: RadioButton = view.findViewById(checkedId)
