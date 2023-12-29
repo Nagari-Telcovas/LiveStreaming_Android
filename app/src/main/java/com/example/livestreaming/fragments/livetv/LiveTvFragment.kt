@@ -28,7 +28,7 @@ import java.util.ArrayList
 
 class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
 
-    var channelProfile = 0
+    var channelProfile = Constants.CLIENT_ROLE_AUDIENCE
     var cameraGranted = false
     var permissionsStr = arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
     var permissionsCount = 0
@@ -83,7 +83,7 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
         submit.setOnClickListener{
             // if (cameraGranted){
             var id: Int = radioGroup.checkedRadioButtonId
-            if (id!=-1){
+          //  if (id!=-1){
                 val channelName = channelName.text.toString()
                 val intent = Intent(requireContext(), AgoraVideoActivity::class.java)
                 intent.putExtra(AgoraMainActivity.channelMessage, channelName)
@@ -93,13 +93,13 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
                 startActivity(intent)
                 // val radio:RadioButton = findViewById(id)
                 //  Toast.makeText(applicationContext,"On button click :" + " ${radio.text}", Toast.LENGTH_SHORT).show()
-            }else{
+         //   }else{
                 // If no radio button checked in this radio group
-                Toast.makeText(requireContext(),"Please Select one Item", Toast.LENGTH_SHORT).show()
+           //     Toast.makeText(requireContext(),"Please Select one Item", Toast.LENGTH_SHORT).show()
                 //   }
                 //}else{
                 //CommonMethods.showMessage(this, getString(R.string.permission_required))
-            }
+         //   }
 
         }
         val MY_PERMISSIONS_REQUEST_CAMERA = 0

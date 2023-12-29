@@ -112,11 +112,12 @@
                     android:textSize="@dimen/textview18"
                     android:textColor="@color/black"
                     android:fontFamily="@font/roboto_medium_numbers"
-                    android:text="Create a live broadcast or join an existing one"
+                    android:text="Create a live Broadcast"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RadioGroup
+                    android:visibility="gone"
                     android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -174,10 +175,34 @@
                     app:layout_constraintTop_toBottomOf="@+id/textview2" />
 
                 <View
+                    android:id="@+id/channelView"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimenHalf"
                     android:background="@color/black"
                     app:layout_constraintTop_toBottomOf="@+id/channelName"
+                    android:layout_marginTop="@dimen/dimen10"
+                    android:layout_marginStart="@dimen/dimen20"
+                    android:layout_marginEnd="@dimen/dimen20"/>
+
+
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen20"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/textview16"
+                    android:hint="Description"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/channelView" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimenHalf"
+                    android:background="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
                     android:layout_marginTop="@dimen/dimen10"
                     android:layout_marginStart="@dimen/dimen20"
                     android:layout_marginEnd="@dimen/dimen20"/>
@@ -188,14 +213,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen28"
                     android:background="@drawable/rounded_corner"
-                    android:text="@string/submit"
+                    android:text="@string/join"
                     android:textColor="@color/white"
                     android:paddingTop="@dimen/dimen10"
                     android:paddingBottom="@dimen/dimen10"
                     android:paddingStart="@dimen/dimen40"
                     android:paddingEnd="@dimen/dimen40"
                     android:textSize="@dimen/textview15"
-                    app:layout_constraintTop_toBottomOf="@+id/channelName"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"/>
 
