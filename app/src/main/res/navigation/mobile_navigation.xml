@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_account"
-        android:name="com.example.livestreaming.fragments.account.LoginFragment"
+        android:name="com.example.livestreaming.fragments.account.AccountFragment"
         android:label="@string/loginFragment"
         tools:layout="@layout/fragment_login" />
 </navigation>

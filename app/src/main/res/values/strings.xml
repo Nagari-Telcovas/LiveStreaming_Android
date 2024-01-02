@@ -27,6 +27,14 @@
     <string name="requiredPinCode">PinCode can\'t be Empty!</string>
     <string name="requiredMessage">Message can\'t be Empty!</string>
     <string name="checkNetwork">Please check your Internet Connectivity!</string>
+    <string name="getStarted">Lets get started!</string>
+    <string name="subNumberText">We will send you an One Time Password on this mobile number</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="alreadyAccount">Already have an Account?</string>
+    <string name="myProfile">My Profile</string>
+    <string name="myPlan">My Plan</string>
+    <string name="helpFeedback">Help and Feedback</string>
+    <string name="logout">Logout</string>
 
     <!--  Skip Login  -->
     <string name="skipLogin">SKIP LOGIN</string>
@@ -45,6 +53,8 @@
     <string name="selectYourGender">Select your Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="enterMail">Enter Email Address</string>
+    <string name="mailAddressContent">Add e-mail address to receive exclusive offers, latest news and updates!</string>
 
     <!--  Password  -->
     <string name="forgotPassText">Forgot Password</string>

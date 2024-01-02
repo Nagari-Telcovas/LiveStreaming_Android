@@ -8,6 +8,7 @@ import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.example.livestreaming.MainActivity
 import com.example.livestreaming.databinding.OnboardingViewBinding
+import com.example.livestreaming.login.LoginActivity
 import com.example.livestreaming.onBoardScreen.core.setParallaxTransformation
 
 class OnBoardingView @JvmOverloads
@@ -66,12 +67,12 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
     private fun OnboardingViewBinding.addingButtonsClickListeners() {
         nextBtn.setOnClickListener { navigateToNextSlide(slider) }
         skipBtn.setOnClickListener {
-            context.startActivity(Intent(context, MainActivity::class.java))
+            context.startActivity(Intent(context, LoginActivity::class.java))
             (context as OnBoardingActivity).finish()
             //setFirstTimeLaunchToFalse()
         }
         startBtn.setOnClickListener {
-            context.startActivity(Intent(context, MainActivity::class.java))
+            context.startActivity(Intent(context, LoginActivity::class.java))
             (context as OnBoardingActivity).finish()
             //setFirstTimeLaunchToFalse()
         }

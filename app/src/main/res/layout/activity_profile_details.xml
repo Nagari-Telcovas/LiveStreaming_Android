@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/settingCard"
+    tools:context=".profileDetails.ProfileDetailsActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen250"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="@dimen/dimen128"
+            android:layout_height="@dimen/dimen128"
+            android:layout_marginTop="@dimen/dimen25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="@dimen/dimen120"
+                android:layout_height="@dimen/dimen120"
+                android:src="@drawable/svg_user_placeholder"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/dimen1" />
+
+            <!-- </androidx.cardview.widget.CardView>-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/dimen25"
+                android:layout_marginRight="@dimen/dimen10"
+                android:layout_marginBottom="@dimen/dimen10"
+                app:cardCornerRadius="@dimen/dimen25">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/addNewImage"
+                    android:layout_width="@dimen/dimen28"
+                    android:layout_height="@dimen/dimen28"
+                    android:src="@drawable/svg_add_circle_img"
+                    app:cardCornerRadius="@dimen/dimen20" />
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen20"
+            android:fontFamily="@font/roboto_medium_numbers"
+            android:text="Name"
+            android:textColor="@color/lightGreen"
+            android:textSize="@dimen/textview20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageLayout" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/updateName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:fontFamily="@font/roboto_medium_numbers"
+            android:hint="Live Streaming"
+            android:maxLength="25"
+            android:paddingTop="@dimen/dimen14"
+            android:paddingBottom="@dimen/dimen14"
+            android:textColor="@color/lightGreen"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/textview16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userPhone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen5"
+            android:fontFamily="@font/roboto_medium_numbers"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/textview14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingBottom="@dimen/dimen20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileLayout">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium_numbers"
+            android:lineSpacingExtra="@dimen/dimen5"
+            android:paddingStart="@dimen/dimen25"
+            android:paddingEnd="@dimen/dimen25"
+            android:text="@string/mailAddressContent"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/textview14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/enterMailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen25"
+            android:layout_marginEnd="@dimen/dimen20"
+            android:background="@drawable/border_edittext"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_medium_numbers"
+            android:hint="@string/enterMail"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dimen16"
+            android:paddingTop="@dimen/dimen16"
+            android:paddingEnd="@dimen/dimen14"
+            android:paddingBottom="@dimen/dimen14"
+            android:textSize="@dimen/textview14"
+            app:layout_constraintTop_toBottomOf="@+id/mailAddress" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/updateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dimen20"
+        android:background="@drawable/gradient_otp"
+        android:fontFamily="@font/roboto_medium_numbers"
+        android:inputType="textCapSentences"
+        android:paddingTop="@dimen/dimen13"
+        android:paddingBottom="@dimen/dimen13"
+        android:text="@string/update"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textview16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
