@@ -130,6 +130,8 @@
     <string name="private_app_id">f4e07b724adb413a977cbfa720d17217</string>
 
     <!--  Video Streaming  -->
+    <string name="liveChannels">Live Channels</string>
     <string name="permission_required">Contact access is required!</string>
+    <string name="liveBroadcast">Live Broadcast</string>
 
 </resources>

@@ -1,10 +1,7 @@
-package com.example.livestreaming.fragments.account
+package com.example.livestreaming.login
 
 import androidx.lifecycle.MutableLiveData
 import com.example.livestreaming.networkLibrary.BaseViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 
 class LoginViewModel : BaseViewModel() {

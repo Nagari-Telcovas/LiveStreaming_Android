@@ -1,4 +1,4 @@
-package com.example.livestreaming.fragments.account
+package com.example.livestreaming.login
 
 data class LoginOutput(
     val fullName: String?,

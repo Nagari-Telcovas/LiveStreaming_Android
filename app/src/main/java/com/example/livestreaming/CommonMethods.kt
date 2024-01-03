@@ -53,10 +53,17 @@ class CommonMethods {
         }
 
         fun openActivity(context: Context, activity: AppCompatActivity) {
-            context.startActivity(Intent(context, activity::class.java), ActivityOptions.makeSceneTransitionAnimation(context as MainActivity).toBundle())
+            context.startActivity(Intent(context, activity::class.java), ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
            /* val intentData = Intent(context, activity::class.java)
             intentData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             context.startActivity(intentData)*/
+        }
+
+        fun intentActivity(context: Context, activity: AppCompatActivity) {
+            context.startActivity(Intent(context, activity::class.java))
+            /* val intentData = Intent(context, activity::class.java)
+             intentData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+             context.startActivity(intentData)*/
         }
 
         fun setSharedPreference(context: Context, preferenceName: String, preferenceValue: String?) {

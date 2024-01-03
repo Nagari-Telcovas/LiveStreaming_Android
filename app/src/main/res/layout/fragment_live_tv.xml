@@ -7,6 +7,12 @@
     android:background="@color/yellow"
     tools:context=".fragments.livetv.LiveTvFragment">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,16 +47,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imageTrending"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_bg"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/live_match"
-                    app:layout_constraintDimensionRatio="H,1:1.4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/imageTrending"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:background="@drawable/poster_bg"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/live_match"
+                        app:layout_constraintDimensionRatio="H,1:1.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/joinNow"
@@ -68,166 +74,73 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintBottom_toTopOf="@+id/watchNow"/>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/watchNow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen20"
-                    android:background="@drawable/rounded_corner"
-                    android:text="@string/watchNow"
-                    android:textColor="@color/white"
-                    android:paddingTop="@dimen/dimen6"
-                    android:paddingBottom="@dimen/dimen6"
-                    android:paddingStart="@dimen/dimen20"
-                    android:paddingEnd="@dimen/dimen20"
-                    android:textSize="@dimen/textview12"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/watchNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen20"
+                        android:background="@drawable/rounded_corner"
+                        android:text="@string/watchNow"
+                        android:textColor="@color/white"
+                        android:paddingTop="@dimen/dimen6"
+                        android:paddingBottom="@dimen/dimen6"
+                        android:paddingStart="@dimen/dimen20"
+                        android:paddingEnd="@dimen/dimen20"
+                        android:textSize="@dimen/textview12"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
+            <TextView
+                android:id="@+id/youMayLikeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen15"
+                android:layout_marginTop="@dimen/dimen10"
+                android:paddingTop="@dimen/dimen10"
+                android:paddingBottom="@dimen/dimen10"
+                android:text="@string/liveChannels"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textview14"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ePlayerLayout" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ImageView
+                android:id="@+id/broadcastNewVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/svg_broadcast"
+                app:layout_constraintBottom_toTopOf="@+id/liveVideoList"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ePlayerLayout"
+                app:layout_constraintVertical_bias="0.476" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/liveVideoList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/ePlayerLayout"
-                android:background="@drawable/broadcast_rounded"
-                android:layout_margin="@dimen/dimen20"
-                android:paddingBottom="@dimen/dimen20"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:context=".AgoraMainActivity">
-
-                <TextView
-                    android:id="@+id/textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:layout_marginStart="@dimen/dimen20"
-                    android:layout_marginEnd="@dimen/dimen20"
-                    android:textSize="@dimen/textview18"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/roboto_medium_numbers"
-                    android:text="Create a live Broadcast"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <RadioGroup
-                    android:visibility="gone"
-                    android:id="@+id/radioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginStart="20dp"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview">
-
-                    <RadioButton
-                        android:id="@+id/host"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/textview16"
-                        android:buttonTint="@color/orangeColor"
-                        android:fontFamily="@font/roboto_medium_numbers"
-                        android:text="Host" />
-
-                    <RadioButton
-                        android:id="@+id/audience"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/textview16"
-                        android:buttonTint="@color/orangeColor"
-                        android:fontFamily="@font/roboto_medium_numbers"
-                        android:text="Audience" />
-                </RadioGroup>
-
-                <TextView
-                    android:visibility="gone"
-                    android:id="@+id/textview2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Enter Channel Name"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-                <EditText
-                    android:id="@+id/channelName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen20"
-                    android:textColor="@color/yellow"
-                    android:textSize="@dimen/textview16"
-                    android:hint="Channel Name"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview2" />
-
-                <View
-                    android:id="@+id/channelView"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimenHalf"
-                    android:background="@color/black"
-                    app:layout_constraintTop_toBottomOf="@+id/channelName"
-                    android:layout_marginTop="@dimen/dimen10"
-                    android:layout_marginStart="@dimen/dimen20"
-                    android:layout_marginEnd="@dimen/dimen20"/>
-
-
-                <EditText
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen20"
-                    android:textColor="@color/yellow"
-                    android:textSize="@dimen/textview16"
-                    android:hint="Description"
-                    android:background="@android:color/transparent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/channelView" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimenHalf"
-                    android:background="@color/black"
-                    app:layout_constraintTop_toBottomOf="@+id/description"
-                    android:layout_marginTop="@dimen/dimen10"
-                    android:layout_marginStart="@dimen/dimen20"
-                    android:layout_marginEnd="@dimen/dimen20"/>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen28"
-                    android:background="@drawable/rounded_corner"
-                    android:text="@string/join"
-                    android:textColor="@color/white"
-                    android:paddingTop="@dimen/dimen10"
-                    android:paddingBottom="@dimen/dimen10"
-                    android:paddingStart="@dimen/dimen40"
-                    android:paddingEnd="@dimen/dimen40"
-                    android:textSize="@dimen/textview15"
-                    app:layout_constraintTop_toBottomOf="@+id/description"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:padding="4dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                app:layout_constrainedHeight="true"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/youMayLikeText"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_live_videos" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

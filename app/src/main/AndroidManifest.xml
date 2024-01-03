@@ -25,6 +25,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".liveBroadcast.CreateLiveBroadcastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".fullVideo.LandscapeVideoActivity"
+            android:exported="false" />
+        <activity
             android:name=".profileDetails.ProfileDetailsActivity"
             android:exported="false" />
         <activity
