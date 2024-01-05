@@ -40,7 +40,7 @@ class LiveTvAdapter(private var items: ArrayList<UserImage>, private val context
             .into(holder.posterImage!!)*/
 
         holder.itemLayout?.setOnClickListener {
-            if (CommonMethods.getSharedPreference(context, "Subscribed") == "SubscribedPlan"){
+           // if (CommonMethods.getSharedPreference(context, "Subscribed") == "SubscribedPlan"){
                 var channelProfile = Constants.CLIENT_ROLE_AUDIENCE
                 val intent = Intent(context, AgoraVideoActivity::class.java)
                 intent.putExtra(AgoraMainActivity.channelMessage, userDto.name)
@@ -50,9 +50,9 @@ class LiveTvAdapter(private var items: ArrayList<UserImage>, private val context
                 intentImg.putExtra("VideoLink", userDto.videoUrl)
                 intentImg.putExtra("VideoName", userDto.name)
                 context.startActivity(intentImg)*/
-            }else{
+           /* }else{
                 checkLoginDialog(userDto.videoUrl)
-            }
+            }*/
 
         }
     }

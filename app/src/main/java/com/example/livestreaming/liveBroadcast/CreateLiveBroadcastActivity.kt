@@ -23,7 +23,7 @@ import java.util.ArrayList
 
 class CreateLiveBroadcastActivity : BaseActivity<ActivityCreateLiveBroadcastBinding>(ActivityCreateLiveBroadcastBinding::inflate, R.string.liveBroadcast) {
 
-    var channelProfile = Constants.CLIENT_ROLE_AUDIENCE
+    var channelProfile = Constants.CLIENT_ROLE_BROADCASTER
     var cameraGranted = false
     var permissionsStr = arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
     var permissionsCount = 0
@@ -52,11 +52,11 @@ class CreateLiveBroadcastActivity : BaseActivity<ActivityCreateLiveBroadcastBind
 
             //  Toast.makeText(requireContext(), " On checked change11 :" + " ${radioChecked.text}", Toast.LENGTH_SHORT).show()
             }*/
-            if(radioChecked.text == "Host") {
+           /* if(radioChecked.text == "Host") {
                 channelProfile = Constants.CLIENT_ROLE_BROADCASTER
             }else{
                 channelProfile = Constants.CLIENT_ROLE_AUDIENCE
-            }
+            }*/
             /* R.id.audience -> if (radioChecked.isChecked){
                  Toast.makeText(requireContext(), " On checked change22 :" + " ${radioChecked.text}", Toast.LENGTH_SHORT).show()
                  // channelProfile = Constants.CLIENT_ROLE_AUDIENCE
