@@ -1,15 +1,27 @@
 package com.example.livestreaming;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import io.agora.rtc2.Constants;
 import io.agora.rtc2.IRtcEngineEventHandler;
@@ -24,7 +36,9 @@ public class AgoraVideoActivity extends AppCompatActivity {
     private String channelName;
     private int channelProfile;
     public static final String LOGIN_MESSAGE = "com.agora.samtan.agorabroadcast.CHANNEL_LOGIN";
-    ImageView forwardVideo, videoCamera, videoMute, callConnection;
+    ImageView forwardVideo, videoCamera, videoMute, callConnection, screenRotate;
+    LinearLayout bottomTags;
+    FrameLayout videoContainer;
     private IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
 
         @Override
@@ -85,7 +99,9 @@ public class AgoraVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agora_video);
-
+        videoContainer = findViewById(R.id.local_video_view_container);
+        bottomTags = findViewById(R.id.bottomTags);
+        screenRotate = findViewById(R.id.screenRotate);
         forwardVideo = findViewById(R.id.forwardVideo);
         videoCamera = findViewById(R.id.videoCamera);
         videoMute = findViewById(R.id.videoMute);
@@ -94,8 +110,6 @@ public class AgoraVideoActivity extends AppCompatActivity {
         channelName = intent.getStringExtra(AgoraMainActivity.channelMessage);
         channelProfile = intent.getIntExtra(AgoraMainActivity.profileMessage, -1);
 
-        Log.d("ChannelName11", channelName);
-        Log.d("ChannelName22", String.valueOf(channelProfile));
         if (channelProfile == -1) {
             Log.e("TAG: ", "No profile");
         }
@@ -104,6 +118,19 @@ public class AgoraVideoActivity extends AppCompatActivity {
             forwardVideo.setVisibility(View.GONE);
             videoCamera.setVisibility(View.GONE);
         }
+
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            screenRotate.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.clip_fullscreen_exit));
+        } else {
+            screenRotate.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.clip_fullscreen));
+        }
+        screenRotate.setOnClickListener(v -> {
+           if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+               setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+           else
+               setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        });
 
         initAgoraEngineAndJoinChannel();
     }

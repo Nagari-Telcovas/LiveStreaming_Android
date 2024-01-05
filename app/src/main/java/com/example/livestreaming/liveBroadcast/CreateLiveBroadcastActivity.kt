@@ -36,9 +36,6 @@ class CreateLiveBroadcastActivity : BaseActivity<ActivityCreateLiveBroadcastBind
         askForPermissions(permissionsList)
 
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
-        val host = findViewById<RadioButton>(R.id.host)
-        val audience = findViewById<RadioButton>(R.id.audience)
-        val channelName = findViewById<EditText>(R.id.channelName)
         val submit = findViewById<TextView>(R.id.submit)
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -71,12 +68,10 @@ class CreateLiveBroadcastActivity : BaseActivity<ActivityCreateLiveBroadcastBind
             // if (cameraGranted){
             var id: Int = radioGroup.checkedRadioButtonId
             //  if (id!=-1){
-            val channelName = channelName.text.toString()
+            val channelName = bindingScreen.channelName.text.toString()
             val intent = Intent(this, AgoraVideoActivity::class.java)
             intent.putExtra(AgoraMainActivity.channelMessage, channelName)
             intent.putExtra(AgoraMainActivity.profileMessage, channelProfile)
-            Log.d("DataCheck11", channelName)
-            Log.d("DataCheck22", channelProfile.toString())
             startActivity(intent)
             // val radio:RadioButton = findViewById(id)
             //  Toast.makeText(applicationContext,"On button click :" + " ${radio.text}", Toast.LENGTH_SHORT).show()

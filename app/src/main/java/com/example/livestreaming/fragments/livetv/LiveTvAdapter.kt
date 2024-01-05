@@ -12,10 +12,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.livestreaming.AgoraMainActivity
+import com.example.livestreaming.AgoraVideoActivity
 import com.example.livestreaming.CommonMethods
 import com.example.livestreaming.R
 import com.example.livestreaming.VideoDetailsActivity
 import com.example.livestreaming.subscription.SubscriptionActivity
+import io.agora.rtc2.Constants
 
 
 class LiveTvAdapter(private var items: ArrayList<UserImage>, private val context: Context): RecyclerView.Adapter<LiveTvAdapter.ViewHolder>() {
@@ -38,10 +41,15 @@ class LiveTvAdapter(private var items: ArrayList<UserImage>, private val context
 
         holder.itemLayout?.setOnClickListener {
             if (CommonMethods.getSharedPreference(context, "Subscribed") == "SubscribedPlan"){
-                val intentImg = Intent(context, VideoDetailsActivity::class.java)
+                var channelProfile = Constants.CLIENT_ROLE_AUDIENCE
+                val intent = Intent(context, AgoraVideoActivity::class.java)
+                intent.putExtra(AgoraMainActivity.channelMessage, userDto.name)
+                intent.putExtra(AgoraMainActivity.profileMessage, channelProfile)
+                context.startActivity(intent)
+                /*val intentImg = Intent(context, VideoDetailsActivity::class.java)
                 intentImg.putExtra("VideoLink", userDto.videoUrl)
                 intentImg.putExtra("VideoName", userDto.name)
-                context.startActivity(intentImg)
+                context.startActivity(intentImg)*/
             }else{
                 checkLoginDialog(userDto.videoUrl)
             }
