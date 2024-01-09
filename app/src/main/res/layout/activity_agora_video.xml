@@ -49,7 +49,7 @@
                 android:layout_weight="20"
                 android:onClick="onSwitchCameraClicked"
                 android:scaleType="centerInside"
-                android:src="@drawable/clip_fullscreen" />
+                android:src="@drawable/img_enlarge" />
 
             <ImageView
                 android:id="@+id/forwardVideo"

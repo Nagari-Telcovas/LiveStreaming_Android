@@ -1,10 +1,8 @@
 package com.example.livestreaming;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -17,12 +15,9 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import io.agora.rtc2.Constants;
 import io.agora.rtc2.IRtcEngineEventHandler;
 import io.agora.rtc2.RtcEngine;
@@ -39,6 +34,7 @@ public class AgoraVideoActivity extends AppCompatActivity {
     ImageView forwardVideo, videoCamera, videoMute, callConnection, screenRotate;
     LinearLayout bottomTags;
     FrameLayout videoContainer;
+    int orientation;
     private IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
 
         @Override
@@ -119,20 +115,46 @@ public class AgoraVideoActivity extends AppCompatActivity {
             videoCamera.setVisibility(View.GONE);
         }
 
-        int orientation = getResources().getConfiguration().orientation;
+        orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            screenRotate.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.clip_fullscreen_exit));
+            screenRotate.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.img_collapse));
         } else {
-            screenRotate.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.clip_fullscreen));
+            screenRotate.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.img_enlarge));
+
         }
         screenRotate.setOnClickListener(v -> {
-           if (orientation == Configuration.ORIENTATION_LANDSCAPE)
-               setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-           else
-               setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            else
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         });
 
+        videoContainer.setOnClickListener(v -> {
+            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                Animation slide_down = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.slide_up);
+                bottomTags.startAnimation(slide_down);
+                bottomTags.setVisibility(View.VISIBLE);
+            }
+            bottomLayoutHide(10000);
+        });
+
+        bottomLayoutHide(5000);
         initAgoraEngineAndJoinChannel();
+    }
+
+    public void bottomLayoutHide(int timeWait){
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    Animation slide_down = AnimationUtils.loadAnimation(getApplicationContext(),
+                            R.anim.slide_down);
+                    bottomTags.startAnimation(slide_down);
+                    bottomTags.setVisibility(View.GONE);
+                }
+            }
+        }, timeWait);
     }
 
     public void onLocalVideoMuteClicked(View view) {

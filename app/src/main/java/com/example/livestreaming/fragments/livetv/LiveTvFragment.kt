@@ -48,10 +48,10 @@ class LiveTvFragment : BaseFragment(R.layout.fragment_live_tv) {
         var result = ArrayList<UserImage>()
 
         //for (i in 0..1) {
-            result.add(UserImage("Movies Live", R.drawable.movie_live, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"))
-            result.add(UserImage("Sports Live", R.drawable.live_match, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"))
-            result.add(UserImage("News Live", R.drawable.news_live, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"))
-            result.add(UserImage("Comedy Live", R.drawable.comedy_live, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"))
+            result.add(UserImage("Movies", R.drawable.movie_live, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"))
+            result.add(UserImage("Sports", R.drawable.live_match, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"))
+            result.add(UserImage("News", R.drawable.news_live, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"))
+            result.add(UserImage("Comedy", R.drawable.comedy_live, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"))
           //  result.add(UserImage("LiveVideo5", R.drawable.live_match, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"))
           //  result.add(UserImage("LiveVideo6", R.drawable.channel_2, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"))
           //  result.add(UserImage("LiveVideo7", R.drawable.channel_3, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"))

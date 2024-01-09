@@ -3,7 +3,7 @@
 
     <!-- Fragment Screens -->
     <string name="homeFragment">Home</string>
-    <string name="liveTvFragment">Live TV</string>
+    <string name="liveTvFragment">Live Stream</string>
     <string name="premiumFragment">Premium</string>
     <string name="loginFragment">Account</string>
 
